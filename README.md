@@ -5,7 +5,7 @@ Welcome to IntraData's Digital Catalog client
 In this document we will describe a simple client library to communicate with [**Digital Catalog**](https://www.solipsisdocumentmanagement.nl/intraoffice-archief/), 
 a Cloud-based paperless office solution from [**IntraData**](http://intradata.nl). We will go through the possible use cases and present corresponding code examples. 
 
-* [Introduction](#introduction)
+* [Introduction](#introduction-)
 
 
 * [Major concepts](#majorconcepts)
