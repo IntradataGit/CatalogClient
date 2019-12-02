@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F5B7F8D3-D7CA-4C16-862C-609E8CCDF622}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Development", "Development", "{0E44A4AF-3E9A-4C9A-8778-F32B5FC5B460}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntraOffice.Nuget.Catalog.Models", "Src\IntraOffice.Nuget.Catalog.Models.csproj", "{D8EDFC79-B6BB-4003-8A12-B45015F351C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8EDFC79-B6BB-4003-8A12-B45015F351C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EDFC79-B6BB-4003-8A12-B45015F351C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EDFC79-B6BB-4003-8A12-B45015F351C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EDFC79-B6BB-4003-8A12-B45015F351C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8EDFC79-B6BB-4003-8A12-B45015F351C6} = {F5B7F8D3-D7CA-4C16-862C-609E8CCDF622}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2890483F-0A74-4A08-A2DA-6FD1B3D640DA}
+	EndGlobalSection
+EndGlobal
