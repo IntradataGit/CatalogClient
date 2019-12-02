@@ -5,7 +5,7 @@ Welcome to IntraData's Digital Catalog client
 In this document we will describe a simple client library to communicate with [**Digital Catalog**](https://www.solipsisdocumentmanagement.nl/intraoffice-archief/), 
 a Cloud-based paperless office solution from [**IntraData**](http://intradata.nl). We will go through the possible use cases and present corresponding code examples. 
 
-* [Introduction](#introduction-)
+* [Introduction](#introduction)
 
 
 * [Major concepts](#majorconcepts)
@@ -50,7 +50,7 @@ a Cloud-based paperless office solution from [**IntraData**](http://intradata.nl
 
 * [Entities](#entities)
     * [List available entities](#listentities)
-    * [Searching for documents using entity](#sfdue)
+    * [Searching for entities](#sfe)
 
 
 * [Views](#views)
@@ -921,19 +921,14 @@ that document is created only the shipping number is known. The actual shipping 
 applications and will only be accessible via HTTP API call. To add 'external' data sources to the Catalog, the concept of `Entity` is introduced. `Entity` is a logical table that
 abstracts the actual data source. 
 
-A document in the Catalog can be 'linked' to an entity. Simply put, a record in 'documents' table will have a matching 'row' in 'entity' table. The match is done by using shared 
-primary key. That is a combination of elements present in both tables that uniquely identify each row. Futhermore, a document can be linke to more than one entity. In that case, 
-a single 'document row' may have several matching exteral rows each residing in a separate table. 
-
-
 
 ### List availabe entities [](#listentities)
-The following code shows how to get the overview of available entites: 
+The following code shows how to get the overview of available entity types: 
 
 ```csharp
 ICatalogClient4Configs service = new CatalogClient4Configs(Settings);
 
- IEnumerable<EntityVm> entities = await service.GetEntities();
+IEnumerable<EntityVm> entities = await service.GetEntities();
 ```
 With the response:
 
@@ -963,17 +958,17 @@ With the response:
 ]
 ```
 
-Each entity in the collection has the following attributes: 
+Each item in the collection describes a supported entity type and has the following attributes: 
 * `Id` - entity's unique identifier
 * `Title` - entity's user friendly name
-* `Elements` - element identifers that the entity consists of (required elements are marked with `Mandatory` flag)
-* `Identifiers` - here we list entity identifiers. Each identifier represents an element or collection of elemetns that uniquely identifiers 
-every 'row' in entity (similar to primary key in conventional databases)
+* `Elements` - element identifers that the entity consists of (required elements are marked by `Mandatory` flag)
+* `Identifiers` - collection of entity identifiers (more on this below)
 
-Some important remarks here. Entities are not bound to document classes. That implies that an entity can contain elements that 
-are not present in any of the known document classes. However, to be able to match entities and documents it is important that 
-the elements names in an entity identifier are also known in document classes. Next, each document class can be 'linked' to one 
-or several entities. In the definition of a document class one can see `Entities` property:
+Each identifier is a collection of elements that uniquely characterize an entity. Imagine we have a situation where those elements are also present in the 
+document's metadta. This implies that each document can be 'linked' to an entity. So an entity identifier is a way to build a connection between 
+documents and entities. Please be aware that one document can be linked to more than one entity. Also please note that document class definition 
+also contains `Entities`property: 
+
 
 ```csharp
 [
@@ -997,19 +992,13 @@ or several entities. In the definition of a document class one can see `Entities
 ]
 ```
 
-This property indicates to which entities the documents that belong to that class can be linked to. Note that one entity here is marked as mandatory, and the other as optional. 
-The mandary here implies that for each document in that class there will always be a row in the 'entity' table. 
+This property indicates to which entities the documents that belong to that class can be linked to. Please note "mandatory" and "optional" flags. 
+The first implies that each document from that document class *always* has a matching entity. 
 
 
-
-### Searching for documents using entity [](#sfdue)
-In the previous chapter we have described how to search for documetns using document's own metadata. The 
-catalog also allows to search for documents using entities. In that case, the search will be a more complex two step process: 
-* we will search in entities's metadata
-* when entitiess located, linked documetns will be extracted
-
-For the client side however, searching using entities is very similar to document queries we saw before. In the example below, 
-we show how to search for documents linked to entities whose metadata contains provided text fragment:
+### Searching for entities [](#sfe)
+In the previous chapter we have shown how to search for documents by their own metadata. Similarly, the 
+Catalog also allows to search for entities. In the example below, we show how to search for entities whose elements 'contain' provided text fragment:
 
 ```csharp
 ICatalogClient4EntityQueries service = new CatalogClient4EntityQueries(Settings);
@@ -1030,12 +1019,13 @@ EntitySetMetaDataVm queryResultMetadata = await service.GetQueryResultMetadata(q
     "d-klantnummer",
     "d-productCombinatie",
     "d-medewerkerNummer",
-      ...
+   ...
   ],
   "SortOrder": [],
   "TotalNumberRows": 3
 }
 ```
+
 To get all rows from the query result:
  ```csharp
 ICatalogClient4EntityQueries service = new CatalogClient4EntityQueries(Settings);
@@ -1043,7 +1033,31 @@ ICatalogClient4EntityQueries service = new CatalogClient4EntityQueries(Settings)
 IEnumerable<EntityRowVm> rows = await service.GetAllRows(queryResultTicket);
 ```
 
-To get specific row from the query result: 
+This will return the following: 
+```
+{
+  "Values": [
+    "0000002",
+    "BO4ASA",
+   ...
+  ]
+}
+{
+  "Values": [
+    "0000002",
+    "BO4GEM",
+   ...
+  ]
+}
+{
+  "Values": [
+    "0000002",
+    "BO4GEM",
+   ...
+  ]
+}
+```
+As one can see in the example response, in contrast to document queries, the query result contains only values and no tickets to entities. To get specific row from the query result: 
  ```csharp
 ICatalogClient4EntityQueries service = new CatalogClient4EntityQueries(Settings);
 
