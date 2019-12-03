@@ -1,0 +1,104 @@
+﻿[
+  {
+    "id": "a-documentDateCreated",
+    "title": "Date Created",
+    "type": "date-time",
+    "isReadOnly": true,
+    "validation": {
+      "exclusiveMaximum": false,
+      "exclusiveMinimum": false,
+      "minimum": "2018-01-25T08:59:16+01:00",
+      "maximum": "2019-02-21T08:59:13+01:00"
+    }
+  },
+  {
+    "id": "a-documentSize",
+    "title": "Size in bytes",
+    "type": "number",
+    "isReadOnly": true,
+    "validation": {
+      "maximum": 2147483647,
+      "minimum": 0,
+      "exclusiveMaximum": false,
+      "exclusiveMinimum": false,
+      "totalDigits": 9
+    }
+  },
+  {
+    "id": "d-tenant",
+    "title": "Tenant",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 80,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-userId",
+    "title": "User id",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 80,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-email",
+    "title": "E-mail",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 80,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-mobilePhone",
+    "title": "Mobile phone",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 20,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-description",
+    "title": "Description",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 120,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-fileName",
+    "title": "File name",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 120,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-domain",
+    "title": "Domain",
+    "type": "string",
+    "isReadOnly": false,
+    "validation": {
+      "maxLength": 120,
+      "minLength": 0
+    }
+  },
+  {
+    "id": "d-dateDownloaded",
+    "title": "Date downloaded",
+    "type": "date-time",
+    "isReadOnly": false,
+    "validation": {}
+  }
+]
