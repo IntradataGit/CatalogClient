@@ -5,3 +5,4 @@
 **/.vs/
 **/packages/
 **/*.bat
+**/appSettings.Azure.config
