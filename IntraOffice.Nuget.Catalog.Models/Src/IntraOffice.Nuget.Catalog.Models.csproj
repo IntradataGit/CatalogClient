@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>This nuget package contains view models used to exchange data with IntraOffice Archive API</Description>
+    <Description>This nuget package contains view models used to exchange data with IntraOffice Catalog API</Description>
     <Company>IntraData</Company>
     <Copyright>IntraData © 2019</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>http://www.intradata.nl</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/IntradataGit/CatalogClient</PackageProjectUrl>
     <PackageIconUrl>http://i1.wp.com/solips.is/dm/wp-content/uploads/sites/2/2013/04/Logo_Intradata-250x67.gif</PackageIconUrl>
-    <PackageTags>IntraData IntraOffice Archive Models</PackageTags>
+    <PackageTags>IntraData IntraOffice Archive Catalog Models</PackageTags>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <AssemblyVersion>1.0.8.0</AssemblyVersion>
     <Version>1.0.0-rc</Version>

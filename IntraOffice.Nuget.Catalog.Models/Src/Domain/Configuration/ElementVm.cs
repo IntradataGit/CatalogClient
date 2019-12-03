@@ -1,30 +1,35 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace IntraOffice.Nuget.Catalog.Models.Domain.Configuration
 {
    /// <summary>
-   ///    This class represents 'element'
+   /// This class represents 'element'
    /// </summary>
-   public class ElementVm
+   public class ElementVm 
    {
       /// <summary>
-      ///    Element id
+      /// Element id
       /// </summary>
+      [Required]
       public string Id { get; set; }
 
       /// <summary>
-      ///    Element display name
+      /// Element display name
       /// </summary>
+      [Required]
       public string Title { get; set; }
 
       /// <summary>
-      ///    Name of Catalog type (string, date, number, etc)
+      /// Name of Catalog type (string, date, number, etc) 
       /// </summary>
+      [Required]
       public string Type { get; set; }
 
       /// <summary>
-      ///    Is element read only
+      /// Is element read only
       /// </summary>
+      [Required]
       public bool IsReadOnly { get; set; }
    }
 
