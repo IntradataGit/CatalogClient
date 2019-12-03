@@ -11,7 +11,7 @@
     <PackageTags>IntraData IntraOffice Archive Models</PackageTags>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <AssemblyVersion>1.0.8.0</AssemblyVersion>
-    <Version>1.0.36</Version>
+    <Version>1.0.0-rc</Version>
     <Authors>Mikhail Tchesnokov</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

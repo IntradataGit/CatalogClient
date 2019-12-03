@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
 namespace IntraOffice.Nuget.Catalog.Models.Domain.Documents
@@ -21,6 +22,7 @@ namespace IntraOffice.Nuget.Catalog.Models.Domain.Documents
       /// <summary>
       /// Document category id
       /// </summary>
+      [Required]
       public string Category { get; set; }
 
       /// <summary>
@@ -32,6 +34,7 @@ namespace IntraOffice.Nuget.Catalog.Models.Domain.Documents
       /// <summary>
       /// Document file content type (MIME)
       /// </summary>
+      [Required]
       public string ContentType { get; set; }
 
       /// <summary>

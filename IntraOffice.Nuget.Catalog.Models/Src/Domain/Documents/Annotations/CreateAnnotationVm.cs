@@ -1,4 +1,6 @@
-﻿namespace IntraOffice.Nuget.Catalog.Models.Domain.Documents.Annotations
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace IntraOffice.Nuget.Catalog.Models.Domain.Documents.Annotations
 {
    /// <summary>
    /// This represents create model for document annotations
@@ -8,6 +10,7 @@
       /// <summary>
       /// Text of the annotation
       /// </summary>
+      [Required]
       public string Text { get; set; }
 
       /// <summary>
