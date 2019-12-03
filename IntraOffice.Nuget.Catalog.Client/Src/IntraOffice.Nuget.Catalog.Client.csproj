@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Mikhail Tchesnokov</Authors>
+    <Description>This nuget package contains client services to communicate with IntraOffice Catalog API</Description>
+    <Copyright>IntraData BV © 2019</Copyright>
+    <PackageProjectUrl>https://github.com/IntradataGit/CatalogClient</PackageProjectUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageTags>IntraData IntraOffice Archive Catalog Client</PackageTags>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageIconUrl>http://i1.wp.com/solips.is/dm/wp-content/uploads/sites/2/2013/04/Logo_Intradata-250x67.gif</PackageIconUrl>
+    <Version>1.0.0-rc</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NoWarn>1591</NoWarn>
+    <Company>IntraData</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IntraOffice.Nuget.Catalog.Models" Version="1.0.0-rc" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+</Project>
